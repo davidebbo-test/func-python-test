@@ -1,0 +1,5 @@
+{
+  "azureFunctions.projectRuntime": "beta",
+  "azureFunctions.projectLanguage": "Python",
+  "azureFunctions.templateFilter": "Verified"
+}

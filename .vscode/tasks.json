@@ -1,0 +1,47 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Functions Host",
+      "identifier": "runFunctionsHost",
+      "type": "shell",
+      "dependsOn": "build",
+      "osx": {
+        "command": "source func_env\\bin\\activate && func start host"
+      },
+      "windows": {
+        "command": "func_env\\Scripts\\activate | func start host"
+      },
+      "linux": {
+        "command": "source func_env\\bin\\activate && func start host"
+      },
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always"
+      },
+      "options": {
+        "env": {
+          "languageWorkers:python:arguments": "-m ptvsd --server --port 9091 --file"
+        }
+      },
+      "problemMatcher": [
+        {
+          "owner": "azureFunctions",
+          "pattern": [
+            {
+              "regexp": "\\b\\B",
+              "file": 1,
+              "location": 2,
+              "message": 3
+            }
+          ],
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": "^.*Stopping host.*",
+            "endsPattern": "^.*Job host started.*"
+          }
+        }
+      ]
+    }
+  ]
+}
