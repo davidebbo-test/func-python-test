@@ -1,5 +1,6 @@
 {
   "azureFunctions.projectRuntime": "beta",
   "azureFunctions.projectLanguage": "Python",
-  "azureFunctions.templateFilter": "Verified"
+  "azureFunctions.templateFilter": "Verified",
+  "python.pythonPath": "${workspaceFolder}\\env\\Scripts\\python.exe"
 }
