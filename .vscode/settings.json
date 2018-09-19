@@ -1,6 +1,8 @@
 {
-  "azureFunctions.projectRuntime": "beta",
+  "azureFunctions.projectRuntime": "~2",
   "azureFunctions.projectLanguage": "Python",
   "azureFunctions.templateFilter": "Verified",
-  "python.pythonPath": "${workspaceFolder}\\env\\Scripts\\python.exe"
+  "python.pythonPath": "${workspaceFolder}\\env\\Scripts\\python.exe",
+  "python.linting.pylintEnabled": false,
+  "azureFunctions.preDeployTask": "funcPack"
 }

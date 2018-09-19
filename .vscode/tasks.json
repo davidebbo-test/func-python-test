@@ -5,15 +5,14 @@
       "label": "Run Functions Host",
       "identifier": "runFunctionsHost",
       "type": "shell",
-      "dependsOn": "build",
       "osx": {
-        "command": "source func_env\\bin\\activate && func start host"
+        "command": "func extensions install && source func_env\\bin\\activate && func start host"
       },
       "windows": {
-        "command": "func_env\\Scripts\\activate | func start host"
+        "command": "func extensions install | func_env\\Scripts\\activate | func start host"
       },
       "linux": {
-        "command": "source func_env\\bin\\activate && func start host"
+        "command": "func extensions install && source func_env\\bin\\activate && func start host"
       },
       "isBackground": true,
       "presentation": {
@@ -24,24 +23,25 @@
           "languageWorkers:python:arguments": "-m ptvsd --server --port 9091 --file"
         }
       },
-      "problemMatcher": [
-        {
-          "owner": "azureFunctions",
-          "pattern": [
-            {
-              "regexp": "\\b\\B",
-              "file": 1,
-              "location": 2,
-              "message": 3
-            }
-          ],
-          "background": {
-            "activeOnStart": true,
-            "beginsPattern": "^.*Stopping host.*",
-            "endsPattern": "^.*Job host started.*"
-          }
-        }
-      ]
+      "problemMatcher": "$func-watch"
+    },
+    {
+      "label": "funcPack",
+      "identifier": "funcPack",
+      "type": "shell",
+      "osx": {
+        "command": "source func_env\\bin\\activate && func pack"
+      },
+      "windows": {
+        "command": "func_env\\Scripts\\activate | func pack"
+      },
+      "linux": {
+        "command": "source func_env\\bin\\activate && func pack"
+      },
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always"
+      }
     }
   ]
 }
