@@ -21,6 +21,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             name = req_body.get('name')
 
     if name:
+        if 'FOO' not in os.environ:
+             os.environ['FOO'] = "NotSet"
+
         return func.HttpResponse(
             f"Hello {name}! FOO={os.environ['FOO']} host={platform.node()} counter={counter}",
             headers  = {'X-server': platform.node() }
